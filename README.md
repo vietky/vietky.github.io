@@ -1,37 +1,67 @@
-## Welcome to GitHub Pages
+# Viet Ky
+Backend Engineer
 
-You can use the [editor on GitHub](https://github.com/vietky/vietky.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+<div id="webaddress">
+<a href="kq.viet@gmail.com">kq.viet@gmail.com</a> | Ho Chi Minh City
+</div>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Summary
 
-### Markdown
+A backend engineer with a focus on delivering reliable, high performance and scalable systems implementing unit and integration tests, applying caching, replication while enhancing observability through metrics, logs, tracing. Strive to adopt best practices in designing API, workers and internal tools to boost system performance overall.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Skills
+| Languages & Frameworks | Databases & Tools & Platforms | Methodologies & Architectures |
+| --- | --- | --- |
+| Go, NodeJS, Python | MySQL, Redis, Kafka, Prometheus, Jaeger, Docker, Kubernetes, GCP | Agile, CI/CD, Microservices |
 
-```markdown
-Syntax highlighted code block
+## Working Experience
 
-# Header 1
-## Header 2
-### Header 3
+#### Be Group (2022 - present) 
 
-- Bulleted
-- List
+- Be Group JSC, a Vietnamese technology company, is the owner and developer of the on-demand multi service platform “be” which handles 10.000 requests per second (rps).
+- I'm currently working in Ride Hailing project which managed around 6.000 rps.
+- Feature Development:
+    - BeClean:
+        - Connects customers with nearby maid for house cleaning services.
+        - Achieving less than 200ms in p99 overall using technical skills mentioned above.
+    - Daily Commute:
+        - Enables customers to schedule bookings for specific periods and intervals.
+        - Leverage Cadence Workflow and distributed tracing (jaeger) to enhance service reliability and fault tolerance.
+    - Bounce Dispatch: 
+        - Offer customer additional engagement options within the app, contributing to increased company revenue.
+        - Adding custom logs, metrics to services to ensure service reliability.
+- Contributed to several non-functional requirements:
+    - Archiving old data to reduce storage costs and result in faster index lookup.
+    - Conducting code reviews.
+    - Monitoring system performance.
 
-1. Numbered
-2. List
+#### Chotot (2016-2022)
+- Chotot is a B2B marketplace where individuals can buy and sell second-hand items by posting ads achieving over 30M impressions/views daily during my tenure
+- Feature Development:
+    - Ad Review:
+        - A system that enables admins to set rules for filtering out undesirable ads.
+        - The volume of write requests ranges from 50~100 rps.
+    - Sticky Ads:
+        - This feature allows paying customers to display their ads at the top of relevant listings.
+        - The service experiences traffic equivalent to the current ad listings, with 30M+ impressions per day.
+    - Ad View/Impression Counting:
+        - Customers can track the performance of their ads.
+        - Utilize Kafka and PostgreSQL to count the number of impressions and views.
+- Offer technical support and troubleshooting issues encountered by team members.
+- Participate in the initial phase of migrating to Google Cloud.
 
-**Bold** and _Italic_ and `Code` text
+#### Criteo (2013-2016)
+- Criteo is an advertising company that provides online display advertisements. 
+- Responsible for web development, maintenance & deployment of ASP.NET on Windows Server
+- Optimize & speed up the modules (In-Memory Caching, Pagination…)
+- Be familiar with testing frameworks like: Nunit, Selenium
 
-[Link](url) and ![Image](src)
-```
+## Projects
+- [Youtube](https://www.youtube.com/@SmartCookies510) (https://www.youtube.com/@SmartCookies510): A quiz application using LLM to generate videos for my daughter ;).
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## Education
 
-### Jekyll Themes
+- Saigon University - Bachelor of Software Technology (2008-2012)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/vietky/vietky.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Misc. Information
+- Languages: Vietnamese, English
