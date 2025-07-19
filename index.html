@@ -1,107 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
 
-		<head>
-			<style type="text/css" media="screen">
-				body,html{font-family:var(--markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif);font-size:var(--markdown-font-size,14px);padding:0 26px;line-height:var(--markdown-line-height,22px);word-wrap:break-word}body{padding-top:1em}h1,h2,h3,h4,h5,h6,ol,p,pre,ul{margin-top:0}h2,h3,h4,h5,h6{font-weight:400;margin-bottom:.2em}img{max-width:100%;max-height:100%}a{text-decoration:none}a:hover{text-decoration:underline}a:focus,input:focus,select:focus,textarea:focus{outline:1px solid -webkit-focus-ring-color;outline-offset:-1px}p{margin-bottom:.7em}ol,ul{margin-bottom:.7em}hr{border:0;height:2px;border-bottom:2px solid}h1{padding-bottom:.3em;line-height:1.2;border-bottom-width:1px;border-bottom-style:solid;font-weight:400}table{border-collapse:collapse}th{text-align:left;border-bottom:1px solid}td,th{padding:5px 10px}table>tbody>tr+tr>td{border-top:1px solid}blockquote{margin:0 7px 0 5px;padding:0 16px 0 10px;border-left-width:5px;border-left-style:solid}code{font-family:var(--vscode-editor-font-family, "SF Mono", Monaco, Menlo, Consolas, "Ubuntu Mono", "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace);font-size:1em;line-height:1.357em}body.wordWrap pre{white-space:pre-wrap}pre.hljs code>div,pre:not(.hljs){padding:16px;border-radius:3px;overflow:auto}pre code{color:var(--vscode-editor-foreground);tab-size:4}
-			</style>
-		</head>
-		<body>
-			<h1 id="viet-ky">Viet Ky</h1>
-<p>Backend Engineer</p>
-<div id="webaddress">
-<a href="kq.viet@gmail.com">kq.viet@gmail.com</a> | +84 939 312 892 | Ho Chi Minh City
-</div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Việt Ký - Software Engineer Profile">
+  <meta name="keywords"
+    content="Software Engineer, Việt Ký, Profile, Portfolio, Projects, Support, Chrome Extensions, Reader, Highlighter, SmartCookies510">
+  <meta name="author" content="Việt Ký">
+  <title>Engineer Profile - Việt Ký</title>
+  <link href="/src/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
 
-<h2 id="summary">Summary</h2>
-<p>A backend engineer with a focus on delivering reliable, high performance and scalable systems implementing unit and integration tests, applying caching, replication while enhancing observability through metrics, logs, tracing. Strive to adopt best practices in designing API, workers and internal tools to boost system performance overall.</p>
-<h2 id="skills">Skills</h2>
-<table>
-<thead>
-<tr>
-<th>Languages &amp; Frameworks</th>
-<th>Databases &amp; Tools &amp; Platforms</th>
-<th>Methodologies &amp; Architectures</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Go, NodeJS, Python</td>
-<td>MySQL, Redis, Kafka, Prometheus, Jaeger, Docker, Kubernetes, GCP</td>
-<td>Agile, CI/CD, Microservices</td>
-</tr>
-</tbody></table>
-<h2 id="working-experience">Working Experience</h2>
-<h4 id="be-group-2022---present">Be Group (2022 - present)</h4>
-<ul>
-<li>Be Group JSC, a Vietnamese technology company, is the owner and developer of the on-demand multi service platform “be” which handles 10.000 requests per second (rps).</li>
-<li>I&#39;m currently working in Ride Hailing project which managed around 6.000 rps.</li>
-<li>Feature Development:<ul>
-<li>BeClean:<ul>
-<li>Connects customers with nearby maid for house cleaning services.</li>
-<li>Achieving less than 200ms in p99 overall using technical skills mentioned above.</li>
-</ul>
-</li>
-<li>Daily Commute:<ul>
-<li>Enables customers to schedule bookings for specific periods and intervals.</li>
-<li>Leverage Cadence Workflow and distributed tracing (jaeger) to enhance service reliability and fault tolerance.</li>
-</ul>
-</li>
-<li>Bounce Dispatch: <ul>
-<li>Offer customer additional engagement options within the app, contributing to increased company revenue.</li>
-<li>Adding custom logs, metrics to services to ensure service reliability.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Contributed to several non-functional requirements:<ul>
-<li>Archiving old data to reduce storage costs and result in faster index lookup.</li>
-<li>Conducting code reviews.</li>
-<li>Monitoring system performance.</li>
-</ul>
-</li>
-</ul>
-<h4 id="chotot-2016-2022">Chotot (2016-2022)</h4>
-<ul>
-<li>Chotot is a B2B marketplace where individuals can buy and sell second-hand items by posting ads achieving over 30M impressions/views daily during my tenure</li>
-<li>Feature Development:<ul>
-<li>Ad Review:<ul>
-<li>A system that enables admins to set rules for filtering out undesirable ads.</li>
-<li>The volume of write requests ranges from 50~100 rps.</li>
-</ul>
-</li>
-<li>Sticky Ads:<ul>
-<li>This feature allows paying customers to display their ads at the top of relevant listings.</li>
-<li>The service experiences traffic equivalent to the current ad listings, with 30M+ impressions per day.</li>
-</ul>
-</li>
-<li>Ad View/Impression Counting:<ul>
-<li>Customers can track the performance of their ads.</li>
-<li>Utilize Kafka and PostgreSQL to count the number of impressions and views.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Offer technical support and troubleshooting issues encountered by team members.</li>
-<li>Participate in the initial phase of migrating to Google Cloud.</li>
-</ul>
-<h4 id="criteo-2013-2016">Criteo (2013-2016)</h4>
-<ul>
-<li>Criteo is an advertising company that provides online display advertisements. </li>
-<li>Responsible for web development, maintenance &amp; deployment of ASP.NET on Windows Server</li>
-<li>Optimize &amp; speed up the modules (In-Memory Caching, Pagination…)</li>
-<li>Be familiar with testing frameworks like: Nunit, Selenium</li>
-</ul>
-<h2 id="projects">Projects</h2>
-<ul>
-<li><a href="https://www.youtube.com/@SmartCookies510">Youtube</a> (<a href="https://www.youtube.com/@SmartCookies510">https://www.youtube.com/@SmartCookies510</a>): A quiz application using LLM to generate videos for my daughter ;).</li>
-<li><a href="https://chromewebstore.google.com/detail/smart-cookies-memorizer/nogebfajjhmmfobafllkjddjpickpmpc?authuser=0&amp;hl=en">Memorizer</a>: A Chrome extension to help memorize/record what you read on the web by highlighting or screenshotting the content.</li>
-<li><a href="https://chromewebstore.google.com/detail/vk-reader/ldoflhnlkmkhpgnhdplnpalopfnknboi?authuser=3&hl=en">VK Reader</a>: An extension for reading and navigating the content of the web pages with AI summarization. It's designed specifically for people who loves reading like me ;)</li>
-</ul>
-<h2 id="education">Education</h2>
-<ul>
-<li>Saigon University - Bachelor of Software Technology (2008-2012)</li>
-</ul>
-<h2 id="misc-information">Misc. Information</h2>
-<ul>
-<li>Languages: Vietnamese, English</li>
-</ul>
+    .tab-content {
+      display: none;
+    }
 
-		</body>
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen">
+  <!-- Header -->
+  <header class="bg-gray-800 text-white py-16">
+    <div class="container mx-auto px-6 text-center">
+      <div class="w-32 h-32 bg-white rounded-full mx-auto mb-6 flex items-center justify-center">
+        <svg class="w-16 h-16 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.9 1 3 1.9 3 3V21C3 22.1 3.9 23 5 23H19C20.1 23 21 22.1 21 21V9H21ZM19 21H5V3H13V9H19V21Z" />
+        </svg>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Việt Ký</h1>
+      <p class="text-xl md:text-2xl font-light mb-2 text-gray-300">Software Engineer</p>
+      <p class="text-lg text-gray-400">A place I put my thoughts, projects and ideas.</p>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="bg-gray-800 border-b border-gray-700">
+    <div class="container mx-auto px-6">
+      <div class="flex space-x-8 overflow-x-auto">
+        <button onclick="showTab('about')" id="about-tab"
+          class="tab-button py-4 px-2 border-b-2 border-blue-500 text-blue-400 whitespace-nowrap font-medium">
+          About
+        </button>
+        <button onclick="showTab('support')" id="support-tab"
+          class="tab-button py-4 px-2 border-b-2 border-transparent text-gray-400 hover:text-white whitespace-nowrap font-medium">
+          Support
+        </button>
+        <button onclick="showTab('construction')" id="construction-tab"
+          class="tab-button py-4 px-2 border-b-2 border-transparent text-gray-400 hover:text-white whitespace-nowrap font-medium">
+          Under Construction
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-6 py-12">
+    <!-- About Tab -->
+    <div id="about-content" class="tab-content active">
+      <section class="mb-16">
+        <div class="bg-white text-black rounded-2xl shadow-2xl p-8 md:p-12 card-hover">
+          <h2 class="text-3xl font-bold mb-6 text-center">About Me</h2>
+          <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+            <p class="mb-6">
+              I'm a backend engineer with a focus on delivering reliable, high
+              performance and scalable systems implementing unit and integration tests, applying caching, replication
+              while enhancing observability through metrics, logs, tracing. Strive to adopt best practices in designing
+              API, workers and internal tools to boost system performance overall.
+            </p>
+            <p class="mb-6">
+              I'm exploring
+              the latest trends in AI and machine learning so you may already guessed I'm using AI to generate this page
+              😉
+            </p>
+          </div>
+
+          <!-- Skills -->
+          <div class="mt-8">
+            <h3 class="text-xl font-semibold mb-4">Core Technologies</h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
+              <span class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm font-medium">TypeScript</span>
+              <span class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm font-medium">Node.js</span>
+              <span class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm font-medium">Golang</span>
+              <span class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm font-medium">GCP</span>
+              <span class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm font-medium">Docker</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Tab -->
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold text-white text-center mb-8">Featured Projects</h2>
+
+        <a href="https://chromewebstore.google.com/detail/vk-reader/ldoflhnlkmkhpgnhdplnpalopfnknboi?authuser=0&hl=en"
+          target="_blank">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white text-black rounded-xl shadow-2xl p-6 card-hover">
+              <div class="flex justify-center mb-4">
+                <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center">
+                  <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm5-18v4h3V3h-3z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="text-xl font-semibold mb-3 text-center">
+                VK Reader
+              </h3>
+              <p class="text-gray-700 mb-4">
+                A Chrome extension to help you read and summarize articles on the web. It uses OpenAI/Gemini to generate
+                summaries and highlights key points, making it easier to digest long articles.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs">OpenAI/Gemini</span>
+                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs">TypeScript</span>
+                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs">Vite</span>
+              </div>
+            </div>
+        </a>
+
+        <a href="https://chromewebstore.google.com/detail/smart-cookies-memorizer/nogebfajjhmmfobafllkjddjpickpmpc?authuser=0&hl=en"
+          target="_blank">
+
+          <div class="bg-white text-black rounded-xl shadow-2xl p-6 card-hover">
+            <div class="flex justify-center mb-4">
+              <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75S7 8 17 8z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-center">
+              Memorizer
+            </h3>
+            <p class="text-gray-700 mb-4">
+              A Chrome extension to help memorize/record what you read on the web by highlighting or screenshotting the
+              content. The data is stored in Google Drive or share with your friends.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs">TypeScript</span>
+              <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs">Vite</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/@SmartCookies510" target="_blank">
+
+          <div class="bg-white text-black rounded-xl shadow-2xl p-6 card-hover">
+            <div class="flex justify-center mb-4">
+              <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M14,10H2V12H14V10M14,6H2V8H14V6M2,16H10V14H2V16M21.5,11.5L23,13L16,20L11.5,15.5L13,14L16,17L21.5,11.5Z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-center">
+              Smart Cookies Channel
+            </h3>
+            <p class="text-gray-700 mb-4">
+              Allow me to introduce my channel [shamelessly] where I built a pipeline to generate & upload quiz videos
+              for
+              kids (will be back on
+              this project soon as my kid is growing up 😉).
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs">OpenAI</span>
+              <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs">Gemini</span>
+              <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs">Python</span>
+              <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs">GCP</span>
+            </div>
+          </div>
+        </a>
+      </section>
+    </div>
+
+    <!-- Support Tab -->
+    <div id="support-content" class="tab-content">
+      <section class="mb-12">
+        <div class="bg-white text-black rounded-2xl shadow-2xl p-8 md:p-12 text-center">
+          <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4">Support My Work</h2>
+            <p class="text-gray-700 mb-8 leading-relaxed">
+              If you find value in my projects and contributions to the developer community,
+              consider supporting my work. Your donation helps me dedicate more time to open-source
+              projects and creating educational content.
+            </p>
+
+            <!-- Donation Options -->
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+              <button onclick="handleDonation('coffee')"
+                class="bg-gray-800 text-white hover:bg-gray-700 rounded-xl p-6 transition-all duration-300 transform hover:scale-105">
+                <div class="text-3xl mb-2">☕</div>
+                <div class="font-semibold">Buy me a coffee</div>
+                <div class="text-sm text-gray-300">$5</div>
+              </button>
+
+              <button onclick="handleDonation('lunch')"
+                class="bg-gray-800 text-white hover:bg-gray-700 rounded-xl p-6 transition-all duration-300 transform hover:scale-105">
+                <div class="text-3xl mb-2">🍕</div>
+                <div class="font-semibold">Buy me lunch</div>
+                <div class="text-sm text-gray-300">$15</div>
+              </button>
+
+              <button onclick="handleDonation('custom')"
+                class="bg-gray-800 text-white hover:bg-gray-700 rounded-xl p-6 transition-all duration-300 transform hover:scale-105">
+                <div class="text-3xl mb-2">💝</div>
+                <div class="font-semibold">Custom amount</div>
+                <div class="text-sm text-gray-300">Your choice</div>
+              </button>
+            </div>
+
+            <!-- Alternative Support Methods -->
+            <div class="border-t border-gray-200 pt-6">
+              <p class="text-sm mb-4 text-gray-600">Other ways to support:</p>
+              <div class="flex justify-center space-x-4">
+                <button onclick="handleSupport('github')"
+                  class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-300 flex items-center space-x-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                  <span>Star on GitHub</span>
+                </button>
+                <button onclick="handleSupport('share')"
+                  class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-300 flex items-center space-x-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.50-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z" />
+                  </svg>
+                  <span>Share</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Under Construction Tab -->
+    <div id="construction-content" class="tab-content">
+      <section class="mb-12">
+        <div class="bg-white text-black rounded-2xl shadow-2xl p-8 md:p-12 text-center">
+          <div class="max-w-2xl mx-auto">
+            <div class="text-6xl mb-6">🚧</div>
+            <h2 class="text-3xl font-bold mb-4">Under Construction</h2>
+            <p class="text-gray-700 mb-8 leading-relaxed">
+              This section is currently being developed. I'm working on some exciting new features
+              and content that will be available soon!
+            </p>
+
+            <div class="bg-gray-100 rounded-xl p-6 mb-8">
+              <h3 class="text-xl font-semibold mb-4">Coming Soon:</h3>
+              <div class="text-left space-y-3">
+                <div class="flex items-center space-x-3">
+                  <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span class="text-gray-700">Interactive portfolio showcase</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span class="text-gray-700">Technical blog and tutorials</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                  <span class="text-gray-700">Code snippets and tools</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                  <span class="text-gray-700">Contact form and collaboration opportunities</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-sm text-gray-500">
+              Expected completion: Q2 2024
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-700 text-white py-8">
+    <div class="container mx-auto px-6 text-center">
+      <p class="mb-4">&copy; 2025 Việt Ký. All rights reserved.</p>
+      <div class="flex justify-center space-x-6">
+        <a href="https://www.linkedin.com/in/qvietky"
+          class="hover:text-gray-300 transition-colors duration-300">LinkedIn</a>
+        <a href="https://vietky.github.io" class="hover:text-gray-300 transition-colors duration-300">GitHub</a>
+        <a href="mailto:vietky-forwork@gmail.com" class="hover:text-gray-300 transition-colors duration-300">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showTab(tabName) {
+      // Hide all tab contents
+      const tabContents = document.querySelectorAll('.tab-content');
+      tabContents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // Remove active state from all tab buttons
+      const tabButtons = document.querySelectorAll('.tab-button');
+      tabButtons.forEach(button => {
+        button.classList.remove('border-blue-500', 'text-blue-400');
+        button.classList.add('border-transparent', 'text-gray-400');
+      });
+
+      // Show selected tab content
+      document.getElementById(tabName + '-content').classList.add('active');
+
+      // Add active state to selected tab button
+      const activeButton = document.getElementById(tabName + '-tab');
+      activeButton.classList.remove('border-transparent', 'text-gray-400');
+      activeButton.classList.add('border-blue-500', 'text-blue-400');
+    }
+
+    function handleDonation(type) {
+      let message = '';
+      switch (type) {
+        case 'coffee':
+          message = 'Thank you for wanting to buy me a coffee! ☕\n\nThis would redirect to a payment processor like PayPal or Stripe in a real implementation.';
+          break;
+        case 'lunch':
+          message = 'Thank you for wanting to buy me lunch! 🍕\n\nThis would redirect to a payment processor like PayPal or Stripe in a real implementation.';
+          break;
+        case 'custom':
+          const amount = prompt('Enter your donation amount (e.g., 10):');
+          if (amount && !isNaN(amount) && amount > 0) {
+            message = `Thank you for your generous donation of $${amount}! 💝\n\nThis would redirect to a payment processor like PayPal or Stripe in a real implementation.`;
+          } else {
+            return;
+          }
+          break;
+      }
+      alert(message);
+    }
+
+    function handleSupport(type) {
+      switch (type) {
+        case 'github':
+          alert('Thank you for your support! 🌟\n\nThis would redirect to the GitHub repository in a real implementation.');
+          break;
+        case 'share':
+          if (navigator.share) {
+            navigator.share({
+              title: 'Việt Ký - Software Engineer',
+              text: 'Check out this amazing engineer\'s profile and projects!',
+              url: window.location.href
+            });
+          } else {
+            alert('Thank you for wanting to share! 🚀\n\nThis would open sharing options in a real implementation.');
+          }
+          break;
+      }
+    }
+  </script>
+</body>
+
+</html>
