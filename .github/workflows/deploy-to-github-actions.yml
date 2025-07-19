@@ -34,7 +34,7 @@ jobs:
       - name: Vite Github Pages Deployer
         uses: skywarth/vite-github-pages-deployer@separate-dependency-to-working-dir
         with:
-          install_phase_node_env: 'production'
+          install_phase_node_env: 'dev'
           #build_phase_node_env: 'dev'
           public_base_path: '/'
           working_path: '.'
