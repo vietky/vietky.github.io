@@ -1,3 +1,3 @@
-deploy:
-	npm run build && \
-	cp -r dist/* ../
+build:
+	rm -rf dist/
+	npm run build
