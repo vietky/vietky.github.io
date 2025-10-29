@@ -2,7 +2,7 @@
 Backend Engineer
 
 <div id="webaddress">
-<a href="kq.viet@gmail.com">kq.viet@gmail.com</a> | Ho Chi Minh City
+<a href="kq.viet@gmail.com">kq.viet@gmail.com</a> | +84 939 312 892 | Ho Chi Minh City
 </div>
 
 ## Summary
@@ -16,7 +16,7 @@ A backend engineer with a focus on delivering reliable, high performance and sca
 
 ## Working Experience
 
-#### Be Group (2022 - present) 
+#### Be Group (03/2022 - present) 
 
 - Be Group JSC, a Vietnamese technology company, is the owner and developer of the on-demand multi service platform “be” which handles 10.000 requests per second (rps).
 - I'm currently working in Ride Hailing project which managed around 6.000 rps.
@@ -35,7 +35,7 @@ A backend engineer with a focus on delivering reliable, high performance and sca
     - Conducting code reviews.
     - Monitoring system performance.
 
-#### Chotot (2016-2022)
+#### Chotot (05/2016 - 03/2022)
 - Chotot is a B2B marketplace where individuals can buy and sell second-hand items by posting ads achieving over 30M impressions/views daily during my tenure
 - Feature Development:
     - Ad Review:
@@ -50,14 +50,16 @@ A backend engineer with a focus on delivering reliable, high performance and sca
 - Offer technical support and troubleshooting issues encountered by team members.
 - Participate in the initial phase of migrating to Google Cloud.
 
-#### Criteo (2013-2016)
+#### Criteo (01/2013 - 01/2016)
 - Criteo is an advertising company that provides online display advertisements. 
 - Responsible for web development, maintenance & deployment of ASP.NET on Windows Server
 - Optimize & speed up the modules (In-Memory Caching, Pagination…)
 - Be familiar with testing frameworks like: Nunit, Selenium
 
 ## Projects
-- [Youtube](https://www.youtube.com/@SmartCookies510) (https://www.youtube.com/@SmartCookies510): A quiz application using LLM to generate videos for my daughter ;).
+- [Youtube](https://www.youtube.com/@SmartCookies510): A quiz application using LLM to generate videos for kids.
+- [Memorizer](https://chromewebstore.google.com/detail/smart-cookies-memorizer/nogebfajjhmmfobafllkjddjpickpmpc?authuser=0&hl=en): A Chrome extension to help memorize/record what you read on the web by highlighting or screenshotting the content. The data is stored in Google Drive or share with your friends and can be used in NotebookLM with a little bit of processing.
+- [VK Reader](https://chromewebstore.google.com/detail/vk-reader/ldoflhnlkmkhpgnhdplnpalopfnknboi?authuser=0&hl=en): A Chrome extension to help you read and summarize articles on the web.
 
 ## Education
 
