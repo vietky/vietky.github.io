@@ -23,6 +23,8 @@ A backend engineer with a focus on delivering reliable, high performance and sca
 - Feature Development:
     - BeClean:
         - Connects customers with nearby maid for house cleaning services.
+        - Lead the team of 4 people to develop the BeClean service from scratch.
+        - Coordinate with the product team to design the system architecture and define the API contract.
         - Achieving less than 200ms in p99 overall using technical skills mentioned above.
     - Daily Commute:
         - Enables customers to schedule bookings for specific periods and intervals.
