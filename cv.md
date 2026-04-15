@@ -23,6 +23,8 @@ A backend engineer with a focus on delivering reliable, high performance and sca
 - Feature Development:
     - BeClean:
         - Connects customers with nearby maid for house cleaning services.
+        - Lead the team of 4 people to develop the BeClean service from scratch.
+        - Coordinate with the product team to design the system architecture and define the API contract.
         - Achieving less than 200ms in p99 overall using technical skills mentioned above.
     - Daily Commute:
         - Enables customers to schedule bookings for specific periods and intervals.
@@ -58,8 +60,8 @@ A backend engineer with a focus on delivering reliable, high performance and sca
 
 ## Projects
 - [Youtube](https://www.youtube.com/@SmartCookies510): A quiz application using LLM to generate videos for kids.
-- [Memorizer](https://chromewebstore.google.com/detail/smart-cookies-memorizer/nogebfajjhmmfobafllkjddjpickpmpc?authuser=0&hl=en): A Chrome extension to help memorize/record what you read on the web by highlighting or screenshotting the content. The data is stored in Google Drive or share with your friends and can be used in NotebookLM with a little bit of processing.
 - [VK Reader](https://chromewebstore.google.com/detail/vk-reader/ldoflhnlkmkhpgnhdplnpalopfnknboi?authuser=0&hl=en): A Chrome extension to help you read and summarize articles on the web.
+- [Matching Game](https://apps.vietky.io.vn/matchinggame/): A simple multiplayer networked (vibe coded) game to help my kid learn new words by matching the word. The game is built with Go, WebSocket and deployed on kubernetes on my personal VM.
 
 ## Education
 

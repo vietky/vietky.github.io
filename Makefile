@@ -1,2 +1,3 @@
-start:
-	python -m http.server 8000
+build:
+	rm -rf dist/
+	npm run build
