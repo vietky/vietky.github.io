@@ -2,7 +2,7 @@
 Backend Engineer
 
 <div id="webaddress">
-<a href="kq.viet@gmail.com">kq.viet@gmail.com</a> | Ho Chi Minh City
+<a href="kq.viet@gmail.com">kq.viet@gmail.com</a> | +84 939 312 892 | Ho Chi Minh City
 </div>
 
 ## Summary
