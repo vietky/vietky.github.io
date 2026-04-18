@@ -161,80 +161,142 @@ export function setupMaze(container: HTMLElement) {
 
     drawMaze();
 
-    // Pathfinding (DFS)
+    // Pathfinding (BFS on click)
     let ratPos = grid[0];
-    let pathStack: Cell[] = [];
-    ratPos.visited = true;
-    pathStack.push(ratPos);
+    let pathStack: Cell[] = [ratPos];
     let reachedExit = false;
+    let isAnimating = false;
 
-    function getUnvisitedAccessibleNeighbors(cell: Cell) {
+    function getAccessibleNeighbors(cell: Cell) {
         const neighbors: Cell[] = [];
         const top = grid[index(cell.i, cell.j - 1)];
         const right = grid[index(cell.i + 1, cell.j)];
         const bottom = grid[index(cell.i, cell.j + 1)];
         const left = grid[index(cell.i - 1, cell.j)];
 
-        if (top && !top.visited && !cell.walls[0]) neighbors.push(top);
-        if (right && !right.visited && !cell.walls[1]) neighbors.push(right);
-        if (bottom && !bottom.visited && !cell.walls[2]) neighbors.push(bottom);
-        if (left && !left.visited && !cell.walls[3]) neighbors.push(left);
+        if (top && !cell.walls[0]) neighbors.push(top);
+        if (right && !cell.walls[1]) neighbors.push(right);
+        if (bottom && !cell.walls[2]) neighbors.push(bottom);
+        if (left && !cell.walls[3]) neighbors.push(left);
 
         return neighbors;
     }
 
-    function step() {
-        if (reachedExit) return;
-
-        if (pathStack.length > 0) {
-            current = pathStack[pathStack.length - 1];
-
-            if (current.i === cols - 1 && current.j === rows - 1) {
-                reachedExit = true;
-                overlay.classList.remove('opacity-0');
-                overlay.classList.add('opacity-100');
-                overlay.style.pointerEvents = 'auto'; // allow scrolling if needed
-                return;
-            }
-
-            const neighbors = getUnvisitedAccessibleNeighbors(current);
-
-            if (neighbors.length > 0) {
-                const next = neighbors[Math.floor(Math.random() * neighbors.length)];
-                next.visited = true;
-                pathStack.push(next);
-            } else {
-                pathStack.pop();
-            }
-        }
-
+    function drawScene() {
         drawMaze();
 
-        ctx.strokeStyle = '#ed8936';
-        ctx.lineWidth = 4;
-        ctx.beginPath();
-        for (let i = 0; i < pathStack.length; i++) {
-            const cx = pathStack[i].i * w + w / 2;
-            const cy = pathStack[i].j * h + h / 2;
-            if (i === 0) ctx.moveTo(cx, cy);
-            else ctx.lineTo(cx, cy);
-        }
-        ctx.stroke();
-
+        // Draw path
         if (pathStack.length > 0) {
-            const head = pathStack[pathStack.length - 1];
-            ctx.fillStyle = '#e53e3e';
+            ctx.strokeStyle = '#ed8936';
+            ctx.lineWidth = 4;
             ctx.beginPath();
-            ctx.arc(head.i * w + w / 2, head.j * h + h / 2, w / 3, 0, Math.PI * 2);
-            ctx.fill();
+            for (let i = 0; i < pathStack.length; i++) {
+                const cx = pathStack[i].i * w + w / 2;
+                const cy = pathStack[i].j * h + h / 2;
+                if (i === 0) ctx.moveTo(cx, cy);
+                else ctx.lineTo(cx, cy);
+            }
+            ctx.stroke();
         }
 
-        if (!reachedExit) {
-            setTimeout(() => requestAnimationFrame(step), 30);
-        }
+        // Draw Rat
+        ctx.fillStyle = '#e53e3e';
+        ctx.beginPath();
+        const ratX = ratPos.i * w + w / 2;
+        const ratY = ratPos.j * h + h / 2;
+        ctx.arc(ratX, ratY, w / 3, 0, Math.PI * 2);
+        ctx.fill();
     }
 
-    setTimeout(() => {
+    drawScene();
+
+    function animatePath(path: Cell[]) {
+        isAnimating = true;
+        let stepIndex = 0;
+
+        function step() {
+            if (stepIndex < path.length) {
+                ratPos = path[stepIndex];
+                pathStack.push(ratPos);
+                drawScene();
+                stepIndex++;
+
+                // check if exit reached
+                if (ratPos.i === cols - 1 && ratPos.j === rows - 1) {
+                    reachedExit = true;
+                    overlay.classList.remove('opacity-0');
+                    overlay.classList.add('opacity-100');
+                    overlay.style.pointerEvents = 'auto'; // allow scrolling if needed
+                }
+
+                if (!reachedExit) {
+                    setTimeout(() => requestAnimationFrame(step), 50);
+                } else {
+                    isAnimating = false;
+                }
+            } else {
+                isAnimating = false;
+            }
+        }
+
         requestAnimationFrame(step);
-    }, 1000);
+    }
+
+    canvas.addEventListener('pointerdown', (e) => {
+        if (isAnimating || reachedExit) return;
+
+        const rect = canvas.getBoundingClientRect();
+        // Calculate canvas scale in case CSS resizes it
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
+
+        const i = Math.floor(x / w);
+        const j = Math.floor(y / h);
+
+        const targetCell = grid[index(i, j)];
+        if (!targetCell) return;
+
+        // BFS to find shortest path from ratPos to targetCell
+        const queue: Cell[] = [ratPos];
+        const cameFrom = new Map<Cell, Cell | null>();
+        cameFrom.set(ratPos, null);
+
+        let found = false;
+
+        while (queue.length > 0) {
+            const current = queue.shift()!;
+
+            if (current === targetCell) {
+                found = true;
+                break;
+            }
+
+            for (const next of getAccessibleNeighbors(current)) {
+                if (!cameFrom.has(next)) {
+                    queue.push(next);
+                    cameFrom.set(next, current);
+                }
+            }
+        }
+
+        if (found) {
+            // Reconstruct path
+            const path: Cell[] = [];
+            let curr: Cell | null = targetCell;
+            while (curr !== null) {
+                path.push(curr);
+                curr = cameFrom.get(curr)!;
+            }
+            path.reverse();
+
+            // clear old path but start from ratPos
+            pathStack = [ratPos];
+
+            animatePath(path.slice(1)); // skip the first element as rat is already there
+        }
+    });
+
 }

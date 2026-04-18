@@ -127,6 +127,8 @@ export function setupRubiksCube(container: HTMLElement) {
     const dirs = [1, -1];
 
     function generateScramble(moves = 15) {
+        moveQueue = [];
+        history = [];
         for (let i = 0; i < moves; i++) {
             const axis = axes[Math.floor(Math.random() * axes.length)];
             const slice = slices[Math.floor(Math.random() * slices.length)];
@@ -142,6 +144,31 @@ export function setupRubiksCube(container: HTMLElement) {
     group.add(pivot);
 
     let isSolved = false;
+
+    // Interaction for replay
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    renderer.domElement.addEventListener('pointerdown', (event: any) => {
+        if (!isSolved) return; // Ignore clicks if currently animating
+
+        const rect = renderer.domElement.getBoundingClientRect();
+        mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObjects(cubies);
+
+        if (intersects.length > 0) {
+            // Clicked on the cube: start replay
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0');
+
+            isSolved = false;
+            isScrambling = true;
+            generateScramble();
+        }
+    });
 
     function applyMove() {
         if (!currentMove && moveQueue.length > 0) {
