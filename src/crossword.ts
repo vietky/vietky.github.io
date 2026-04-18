@@ -106,17 +106,61 @@ export function setupCrossword(container: HTMLElement) {
     const cluesContainer = document.createElement('div');
     cluesContainer.className = "flex-1 mt-8 md:mt-0 bg-white p-6 rounded shadow-md h-fit";
 
+    const cluesTitleContainer = document.createElement('div');
+    cluesTitleContainer.className = "flex justify-between items-center mb-4 border-b pb-2";
+
     const cluesTitle = document.createElement('h3');
-    cluesTitle.className = "text-xl font-bold mb-4 border-b pb-2";
+    cluesTitle.className = "text-xl font-bold";
     cluesTitle.innerText = "Clues";
-    cluesContainer.appendChild(cluesTitle);
+    cluesTitleContainer.appendChild(cluesTitle);
+
+    const actionButtonsContainer = document.createElement('div');
+    actionButtonsContainer.className = "flex space-x-2";
+
+    const revealAllBtn = document.createElement('button');
+    revealAllBtn.className = "bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600";
+    revealAllBtn.innerText = "Reveal All";
+    actionButtonsContainer.appendChild(revealAllBtn);
+
+    const resetBtn = document.createElement('button');
+    resetBtn.className = "bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600";
+    resetBtn.innerText = "Reset";
+    actionButtonsContainer.appendChild(resetBtn);
+
+    cluesTitleContainer.appendChild(actionButtonsContainer);
+    cluesContainer.appendChild(cluesTitleContainer);
 
     const cluesList = document.createElement('ul');
     cluesList.className = "space-y-3 text-gray-700 text-sm md:text-base";
 
     safeWords.forEach(w => {
         const li = document.createElement('li');
-        li.innerHTML = `<span class="font-bold mr-2 text-blue-600">${w.id}. ${w.dir === 'H' ? 'Across' : 'Down'}:</span> ${w.clue}`;
+        li.className = "flex justify-between items-center";
+
+        const textSpan = document.createElement('span');
+        textSpan.innerHTML = `<span class="font-bold mr-2 text-blue-600">${w.id}. ${w.dir === 'H' ? 'Across' : 'Down'}:</span> ${w.clue}`;
+        li.appendChild(textSpan);
+
+        const revealBtn = document.createElement('button');
+        revealBtn.className = "ml-2 text-xs bg-gray-200 hover:bg-gray-300 text-gray-800 px-2 py-1 rounded";
+        revealBtn.innerText = "Reveal";
+        revealBtn.onclick = () => {
+            let r = w.row;
+            let c = w.col;
+            for (let i = 0; i < w.word.length; i++) {
+                const input = inputs.find(inp => inp.dataset.row === r.toString() && inp.dataset.col === c.toString());
+                if (input) {
+                    input.value = input.dataset.ans!;
+                    input.classList.add('text-green-600');
+                    input.classList.remove('text-red-600');
+                }
+                if (w.dir === 'H') c++;
+                else r++;
+            }
+            checkCompletion();
+        };
+        li.appendChild(revealBtn);
+
         cluesList.appendChild(li);
     });
 
@@ -137,6 +181,25 @@ export function setupCrossword(container: HTMLElement) {
             inputs.forEach(i => i.disabled = true);
         } else {
             completionMsg.classList.add('hidden');
+            // Re-enable inputs if they were previously disabled (e.g., after reset)
+            inputs.forEach(i => i.disabled = false);
         }
     }
+
+    revealAllBtn.onclick = () => {
+        inputs.forEach(i => {
+            i.value = i.dataset.ans!;
+            i.classList.add('text-green-600');
+            i.classList.remove('text-red-600');
+        });
+        checkCompletion();
+    };
+
+    resetBtn.onclick = () => {
+        inputs.forEach(i => {
+            i.value = '';
+            i.classList.remove('text-green-600', 'text-red-600');
+        });
+        checkCompletion();
+    };
 }
