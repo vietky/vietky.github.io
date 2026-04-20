@@ -24,7 +24,8 @@ export default defineConfig(({ mode }) => {
                 input: {
                     main: resolve(__dirname, 'index.html'),
                     portfolio: resolve(__dirname, 'portfolio.html'),
-                    tetris: resolve(__dirname, 'tetris.html')
+                    tetris: resolve(__dirname, 'tetris.html'),
+                    tank: resolve(__dirname, 'tank.html')
                 }
             }
         }

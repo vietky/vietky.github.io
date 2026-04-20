@@ -8,28 +8,47 @@ const navContainer = document.getElementById('nav-container')!;
 setupNav(navContainer);
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div class="min-h-screen bg-gray-50 flex flex-col font-sans">
+  <div class="h-[calc(100vh-64px)] bg-gray-900 flex flex-col font-sans overflow-hidden">
 
-    <!-- Section 1: Rubik's Cube Intro -->
-    <section id="intro" class="w-full h-screen relative bg-gray-900 overflow-hidden flex flex-col">
-        <h2 class="text-white text-3xl font-bold p-8 absolute top-0 left-0 w-full text-center z-10 pointer-events-none">Welcome to my Portfolio</h2>
-        <div id="rubiks-container" class="flex-1 w-full relative"></div>
-        <div class="absolute bottom-8 left-0 w-full text-center animate-bounce text-white pointer-events-none">
-            <p>Scroll down</p>
-            <svg class="w-6 h-6 mx-auto mt-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+    <header class="text-center py-4 flex-shrink-0">
+        <h1 class="text-white text-3xl font-bold">Interactive Portfolio</h1>
+        <p class="text-gray-400 text-sm mt-1">Explore the 3D cube, solve the maze, and complete the crossword all in one place.</p>
+    </header>
+
+    <div class="flex-1 w-full max-w-7xl mx-auto p-4 grid grid-cols-1 lg:grid-cols-3 gap-6 h-full min-h-0">
+
+        <!-- Left Column: Rubik's Cube -->
+        <div class="bg-gray-800 rounded-xl border border-gray-700 shadow-xl flex flex-col overflow-hidden col-span-1 lg:col-span-2 relative">
+            <div class="absolute top-4 left-4 z-10 pointer-events-none">
+                <h2 class="text-white text-xl font-bold bg-black/50 px-3 py-1 rounded">3D Skills Cube</h2>
+                <p class="text-gray-300 text-xs mt-1 bg-black/50 px-3 py-1 rounded inline-block">Drag to rotate</p>
+            </div>
+            <div id="rubiks-container" class="flex-1 w-full h-full relative min-h-[300px]"></div>
         </div>
-    </section>
 
-    <!-- Section 2: Maze Experience -->
-    <section id="experience" class="w-full min-h-screen bg-gray-800 py-16 px-4 flex flex-col items-center justify-center">
-        <h2 class="text-4xl font-bold mb-8 text-white text-center">Help the Rat find the Exit!</h2>
-        <div id="maze-container" class="w-full max-w-2xl relative"></div>
-    </section>
+        <!-- Right Column: Maze & Crossword stacked -->
+        <div class="flex flex-col gap-6 col-span-1 h-full min-h-0">
 
-    <!-- Section 3: Tech Stack Crossword -->
-    <section id="tech-stack" class="w-full min-h-screen bg-gray-50 py-16 px-4 flex flex-col items-center justify-center">
-        <div id="crossword-container" class="w-full"></div>
-    </section>
+            <!-- Maze -->
+            <div class="bg-gray-800 rounded-xl border border-gray-700 shadow-xl flex flex-col flex-1 min-h-0 overflow-hidden relative p-4">
+                <div class="text-center mb-2 flex-shrink-0">
+                    <h2 class="text-white text-lg font-bold">Maze Experience</h2>
+                    <p class="text-gray-400 text-xs">Help the rat find the exit!</p>
+                </div>
+                <div id="maze-container" class="flex-1 w-full h-full relative overflow-hidden flex items-center justify-center"></div>
+            </div>
+
+            <!-- Crossword -->
+            <div class="bg-gray-50 rounded-xl border border-gray-300 shadow-xl flex flex-col flex-1 min-h-0 overflow-hidden relative p-4">
+                <div class="text-center mb-2 flex-shrink-0">
+                    <h2 class="text-gray-900 text-lg font-bold">Tech Stack Crossword</h2>
+                </div>
+                <div id="crossword-container" class="flex-1 w-full h-full relative overflow-auto custom-scrollbar"></div>
+            </div>
+
+        </div>
+
+    </div>
 
   </div>
 `;
