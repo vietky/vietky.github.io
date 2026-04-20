@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
+import { resolve } from 'path'
 
 export default defineConfig(({ mode }) => {
     const isProduction = mode === 'production';
@@ -18,7 +19,14 @@ export default defineConfig(({ mode }) => {
         ],
         build: {
             outDir: './dist',
-            minify: isProduction
+            minify: isProduction,
+            rollupOptions: {
+                input: {
+                    main: resolve(__dirname, 'index.html'),
+                    portfolio: resolve(__dirname, 'portfolio.html'),
+                    tetris: resolve(__dirname, 'tetris.html')
+                }
+            }
         }
     }
 })
