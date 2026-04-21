@@ -23,7 +23,7 @@ export default defineConfig(({ mode }) => {
             rollupOptions: {
                 input: {
                     main: resolve(__dirname, 'index.html'),
-                    portfolio: resolve(__dirname, 'portfolio.html'),
+                    games: resolve(__dirname, 'games.html'),
                     tetris: resolve(__dirname, 'tetris.html'),
                     tank: resolve(__dirname, 'tank.html')
                 }
