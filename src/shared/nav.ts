@@ -9,8 +9,8 @@ export function setupNav(element: HTMLElement) {
             </a>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <a href="/" class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Games</a>
-                <a href="/portfolio.html" class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfolio</a>
+                <a href="/" class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfolio</a>
+                <a href="/games.html" class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Games</a>
               </div>
             </div>
           </div>
@@ -29,8 +29,8 @@ export function setupNav(element: HTMLElement) {
       <!-- Mobile menu, show/hide based on menu state. -->
       <div class="md:hidden hidden" id="mobile-menu">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a href="/" class="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Games</a>
-          <a href="/portfolio.html" class="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Portfolio</a>
+          <a href="/" class="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Portfolio</a>
+          <a href="/games.html" class="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Games</a>
         </div>
       </div>
     </nav>
