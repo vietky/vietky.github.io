@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zero-Touch CI/CD: Automating the Unautomateable - Viet Ky</title>
+  </head>
+  <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <div id="nav-container"></div>
+    <div id="app" class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+      <article class="prose prose-invert prose-yellow lg:prose-xl mx-auto">
+        <p class="text-yellow-400 font-semibold tracking-wide uppercase">Automation</p>
+        <h1>Zero-Touch CI/CD: Automating the Unautomateable</h1>
+
+        <p>Continuous Integration and Continuous Deployment (CI/CD) have become table stakes in modern software engineering. However, many organizations get stuck at "Continuous Delivery"—code is automatically tested and built, but deploying to production still requires human intervention, manual QA sign-offs, and late-night maintenance windows. True "Zero-Touch CI/CD" means a developer pushes code, and minutes later, it is live in production without any human touching a button.</p>
+
+        <h2>The Foundation: Confidence in Testing</h2>
+        <p>The only way to achieve zero-touch deployments is absolute confidence in your automated testing suite. If developers are afraid to merge because they think they might break production, zero-touch is impossible. This requires moving beyond simple unit tests.</p>
+        <p>A robust pipeline must include comprehensive integration tests, contract tests for microservices, and end-to-end (E2E) UI tests using tools like Playwright or Cypress. Crucially, these tests must be reliable; flaky tests that occasionally fail for no reason destroy trust in the pipeline and inevitably lead to human manual review.</p>
+
+        <h2>Visual Regression Testing</h2>
+        <p>One of the hardest things to automate is checking if a UI "looks right." A CSS change might pass all functional E2E tests (the button is still clickable), but the layout might be completely broken visually. Visual regression testing tools like Percy or Chromatic solve this.</p>
+        <p>These tools take screenshots of your application across different browsers and viewport sizes during the CI run and compare them pixel-by-pixel against a baseline. If there are visual differences, the build fails (or pauses for review). This automates what used to be a tedious, error-prone manual QA task.</p>
+
+        <h2>Infrastructure as Code (IaC)</h2>
+        <p>Zero-touch CI/CD requires that the infrastructure itself is version-controlled and deployed automatically. Using tools like Terraform, Pulumi, or AWS CDK ensures that the environment your code runs in is exactly the same as the environment it was tested against.</p>
+        <p>If a new feature requires a new database table or an S3 bucket, those infrastructure changes must be defined in code and applied by the CI/CD pipeline before the application code is deployed.</p>
+
+        <h2>Progressive Delivery: Canary Releases and Feature Flags</h2>
+        <p>Even with perfect tests, deploying directly to 100% of your users is risky. Zero-touch deployment relies heavily on progressive delivery techniques.</p>
+        <p>A Canary Release deploys the new version to a small percentage of users (e.g., 5%). The system then monitors key metrics (error rates, latency, conversion rates). If the metrics degrade, the deployment is automatically rolled back. If they remain stable, the rollout gradually increases to 100%. This is entirely automated.</p>
+        <p>Feature Flags decouple deployment from release. You deploy the code with the new feature hidden behind a flag. Once the code is safely in production, product managers can turn the flag on for specific users or gradually roll it out, without needing a new engineering deployment.</p>
+
+        <h2>Custom Runners and Specialized Hardware</h2>
+        <p>Sometimes, standard cloud CI runners aren't enough. If you are building native iOS applications, compiling massive C++ codebases, or running tests that require specific GPUs, you need custom runners. Integrating self-hosted runners into GitHub Actions or GitLab CI allows you to bring your own specialized hardware into the automated pipeline, ensuring that even complex, hardware-dependent builds can be fully automated.</p>
+
+        <h2>Conclusion</h2>
+        <p>Achieving zero-touch CI/CD is a cultural shift as much as a technical one. It requires relentless discipline in writing reliable tests and a commitment to automating every possible manual step. The reward, however, is immense: drastically reduced lead times, happier developers, and the ability to ship value to customers multiple times a day with zero stress.</p>
+      </article>
+    </div>
+    <div id="footer-container"></div>
+    <script type="module" src="/src/page.ts"></script>
+  </body>
+</html>

@@ -1,8 +1,14 @@
 import './style.css';
 import { setupNav } from './shared/nav';
+import { setupFooter } from './shared/footer';
 
 const navContainer = document.getElementById('nav-container')!;
 setupNav(navContainer);
+
+const footerContainer = document.getElementById('footer-container');
+if (footerContainer) {
+    setupFooter(footerContainer);
+}
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div class="min-h-[calc(100vh-64px)] bg-gray-900 flex flex-col items-center justify-center font-sans py-8">

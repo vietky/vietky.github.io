@@ -3,9 +3,15 @@ import { setupRubiksCube } from './rubiks';
 import { setupMaze } from './maze';
 import { setupCrossword } from './crossword';
 import { setupNav } from './shared/nav';
+import { setupFooter } from './shared/footer';
 
 const navContainer = document.getElementById('nav-container')!;
 setupNav(navContainer);
+
+const footerContainer = document.getElementById('footer-container');
+if (footerContainer) {
+    setupFooter(footerContainer);
+}
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div class="h-[calc(100vh-64px)] bg-gray-900 flex flex-col font-sans overflow-hidden">

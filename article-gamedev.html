@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optimizing Render Pipelines for WebGL Games - Viet Ky</title>
+  </head>
+  <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <div id="nav-container"></div>
+    <div id="app" class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+      <article class="prose prose-invert prose-green lg:prose-xl mx-auto">
+        <p class="text-green-400 font-semibold tracking-wide uppercase">Game Development</p>
+        <h1>Optimizing Render Pipelines for WebGL Games</h1>
+
+        <p>Bringing 3D games to the browser via WebGL and libraries like Three.js offers incredible accessibility—users can play instantly without downloading massive installers. However, the browser environment is highly constrained compared to native desktop applications. Hitting a consistent 60 frames per second (fps) requires meticulous optimization of the rendering pipeline.</p>
+
+        <h2>The Draw Call Bottleneck</h2>
+        <p>The single most common performance killer in WebGL games is an excessive number of draw calls. A draw call is a command sent from the CPU to the GPU instructing it to render a specific object with a specific material. The CPU must prepare the state (textures, shaders, vertex data) for each call, which incurs significant overhead.</p>
+        <p>If you have a scene with 10,000 distinct trees, rendering them individually requires 10,000 draw calls. In JavaScript, the CPU will likely become bottlenecked before the GPU even breaks a sweat, resulting in stuttering and low frame rates. The solution lies in batching.</p>
+
+        <h2>Instanced Rendering</h2>
+        <p>When you have many identical objects (like trees in a forest, grass blades, or asteroids), Instanced Rendering is the holy grail. Instancing allows you to send the geometry and material to the GPU exactly once. You then send a separate buffer containing the unique transformation matrices (position, rotation, scale) for every instance.</p>
+        <p>With instancing, those 10,000 trees can be rendered in a single draw call. In Three.js, this is achieved using <code>THREE.InstancedMesh</code>. The performance gains are astronomical, often turning a completely unplayable scene into a buttery smooth 60fps experience.</p>
+
+        <h2>Geometry Merging</h2>
+        <p>What if the objects share a material but aren't identical? For static scenes—like buildings making up a cityscape or terrain chunks—you can merge their geometries into a single massive mesh at load time or during a build step. </p>
+        <p>Tools like Three.js's <code>BufferGeometryUtils.mergeBufferGeometries</code> combine multiple geometries into one. Again, this reduces draw calls. However, unlike instancing, merging consumes more GPU memory (since the vertex data for every object is duplicated) and prevents you from easily moving or culling individual sub-objects later. It's best used for static level geometry.</p>
+
+        <h2>Level of Detail (LOD)</h2>
+        <p>Rendering a million-polygon character model is pointless if the character is a tiny speck on the horizon. Level of Detail (LOD) techniques swap out high-resolution models for lower-resolution proxies as the camera moves further away.</p>
+        <p>This drastically reduces the vertex count the GPU has to process. Three.js provides a <code>THREE.LOD</code> object to manage this automatically. Proper LOD implementation is crucial for vast open-world games running in the browser.</p>
+
+        <h2>Texture Optimization and Atlases</h2>
+        <p>Changing textures between draw calls is another expensive state change. A Texture Atlas combines multiple smaller textures into one large image. By updating the UV coordinates of your models to point to the correct sub-section of the atlas, you can render many different objects using a single material and a single draw call.</p>
+        <p>Furthermore, ensure your textures are compressed (e.g., using Basis Universal or KTX2 formats). These formats remain compressed on the GPU, significantly reducing memory bandwidth—a common bottleneck on mobile devices.</p>
+
+        <h2>Managing the Garbage Collector</h2>
+        <p>JavaScript's Garbage Collector (GC) is the enemy of smooth frame rates. When the GC runs, it pauses execution, causing visible stutters ("jank"). To minimize GC pauses, you must avoid allocating objects inside your main render loop.</p>
+        <p>Instead of creating new <code>THREE.Vector3</code> objects every frame to calculate physics, create them once during initialization and reuse them. Pool objects (like bullets or enemies) so that when one "dies," it is deactivated and returned to the pool rather than being destroyed, and later resurrected when a new one is needed.</p>
+
+        <h2>Conclusion</h2>
+        <p>Optimizing for WebGL requires a shift in mindset. You must constantly balance CPU overhead against GPU capabilities, all while navigating the quirks of JavaScript memory management. By mastering draw call reduction, LOD, and object pooling, you can create breathtaking browser-based games that run flawlessly across a wide range of devices.</p>
+      </article>
+    </div>
+    <div id="footer-container"></div>
+    <script type="module" src="/src/page.ts"></script>
+  </body>
+</html>
