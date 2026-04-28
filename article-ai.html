@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Practical Guide to Embedding LLMs in Web Apps - Viet Ky</title>
+  </head>
+  <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <div id="nav-container"></div>
+    <div id="app" class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+      <article class="prose prose-invert prose-purple lg:prose-xl mx-auto">
+        <p class="text-purple-400 font-semibold tracking-wide uppercase">AI Integration</p>
+        <h1>The Practical Guide to Embedding LLMs in Web Apps</h1>
+
+        <p>The hype cycle around Large Language Models (LLMs) like GPT-4 and Claude has peaked, and we are now entering the era of practical implementation. While chat interfaces are the most visible application of this technology, the true power of LLMs lies in their ability to act as cognitive reasoning engines quietly powering backend workflows and enhancing traditional web applications.</p>
+
+        <h2>Moving Beyond the Chatbot</h2>
+        <p>A chat window is a very unconstrained interface. Users can ask anything, and the model can reply with anything, making it difficult to guarantee a consistent user experience. The most effective LLM integrations constrain the inputs and strictly format the outputs.</p>
+        <p>Instead of a chatbot, consider using an LLM to automatically categorize incoming support tickets, extract structured JSON data from messy user uploads (like parsing resumes or receipts), or dynamically generate personalized email copy based on user behavior metrics.</p>
+
+        <h2>Retrieval-Augmented Generation (RAG)</h2>
+        <p>LLMs are trained on massive datasets, but their knowledge cutoff dates mean they don't know about your company's specific, proprietary data. Fine-tuning a model on your data is expensive and complex. The industry standard solution is Retrieval-Augmented Generation (RAG).</p>
+        <p>In a RAG architecture, when a user asks a question, the system first converts the question into a vector embedding. It then queries a Vector Database (like Pinecone or pgvector) to retrieve the most semantically relevant documents from your internal knowledge base. These retrieved documents are injected into the prompt alongside the user's question. The LLM is then instructed to answer the question using *only* the provided context. This grounds the model in factual data and dramatically reduces hallucinations.</p>
+
+        <h2>Structured Outputs and Tool Calling</h2>
+        <p>If an LLM is part of a larger automated pipeline, its output must be machine-readable. Prompting a model to "return JSON" is notoriously flaky; it might prepend the response with markdown formatting (```json) or include conversational filler ("Here is the JSON you requested:").</p>
+        <p>Modern LLM APIs (like OpenAI's Function Calling or Anthropic's Tool Use) solve this. You provide the model with a JSON schema defining the exact structure you need (e.g., an object with a `sentiment` string and a `confidence` number). The API guarantees that the response will adhere to that schema. This allows you to safely route the model's output directly into your database or pass it as arguments to other internal APIs.</p>
+
+        <h2>Latency and Streaming</h2>
+        <p>LLMs are slow. Generating a long response can take several seconds. In a web application, blocking the UI for that long is unacceptable. Implementing server-sent events (SSE) or WebSockets to stream the response token-by-token back to the client is mandatory for a good user experience.</p>
+        <p>If you are using LLMs for background processing rather than user-facing generation, leverage queues (like Redis/BullMQ or AWS SQS). Process the LLM calls asynchronously and notify the client via webhooks or polling when the job is complete.</p>
+
+        <h2>Evaluating and Monitoring</h2>
+        <p>Traditional unit tests assert that <code>2 + 2 = 4</code>. How do you test a system whose output is non-deterministic text? Evaluating LLM applications requires a paradigm shift. You must build evaluation pipelines that use other LLMs (often stronger, more expensive models) to grade the outputs of your primary model based on criteria like relevance, accuracy, and tone.</p>
+        <p>Furthermore, prompt injection attacks are a real threat. Malicious users can craft inputs designed to bypass your instructions and force the model to reveal sensitive data or behave inappropriately. Robust monitoring, input sanitization, and output moderation layers are essential before deploying an LLM feature to production.</p>
+
+        <h2>Conclusion</h2>
+        <p>Integrating LLMs into web applications involves much more than just making a simple API call. It requires orchestrating vector search, enforcing structured outputs, managing latency, and implementing novel evaluation strategies. When done correctly, however, it unlocks capabilities that were entirely impossible just a few years ago.</p>
+      </article>
+    </div>
+    <div id="footer-container"></div>
+    <script type="module" src="/src/page.ts"></script>
+  </body>
+</html>

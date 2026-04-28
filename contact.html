@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Viet Ky</title>
+  </head>
+  <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <div id="nav-container"></div>
+    <div id="app" class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+      <div class="prose prose-invert prose-blue mb-8">
+        <h1>Contact Me</h1>
+        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Whether you have a question about my work, my blog posts, or just want to say hi, I'll try my best to get back to you!</p>
+      </div>
+
+      <div class="bg-gray-800 rounded-lg p-8 shadow-xl">
+        <form action="#" method="POST" class="space-y-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-300">Name</label>
+            <div class="mt-1">
+              <input type="text" name="name" id="name" autocomplete="name" required class="py-3 px-4 block w-full shadow-sm bg-gray-700 text-white border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
+            </div>
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-300">Email</label>
+            <div class="mt-1">
+              <input id="email" name="email" type="email" autocomplete="email" required class="py-3 px-4 block w-full shadow-sm bg-gray-700 text-white border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
+            </div>
+          </div>
+          <div>
+            <label for="subject" class="block text-sm font-medium text-gray-300">Subject</label>
+            <div class="mt-1">
+              <input type="text" name="subject" id="subject" class="py-3 px-4 block w-full shadow-sm bg-gray-700 text-white border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
+            </div>
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-300">Message</label>
+            <div class="mt-1">
+              <textarea id="message" name="message" rows="4" required class="py-3 px-4 block w-full shadow-sm bg-gray-700 text-white border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
+            </div>
+          </div>
+          <div>
+            <button type="submit" class="w-full inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-900 transition-colors duration-200">
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="mt-12 prose prose-invert">
+        <h2>Other ways to connect</h2>
+        <p>You can also find me on:</p>
+        <ul>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter / X</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer-container"></div>
+    <script type="module" src="/src/page.ts"></script>
+  </body>
+</html>

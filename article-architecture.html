@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building Resilient Microservices in 2024 - Viet Ky</title>
+  </head>
+  <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <div id="nav-container"></div>
+    <div id="app" class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+      <article class="prose prose-invert prose-blue lg:prose-xl mx-auto">
+        <p class="text-blue-400 font-semibold tracking-wide uppercase">Software Architecture</p>
+        <h1>Building Resilient Microservices in 2024</h1>
+
+        <p>The landscape of distributed systems is constantly evolving. In 2024, the expectations for system availability and resilience are higher than ever. When you break a monolith into microservices, you trade in-memory function calls for network boundaries. This introduces latency, partial failures, and cascading errors. Building resilience means assuming failure is a constant and designing systems that gracefully degrade rather than crash completely.</p>
+
+        <h2>The Reality of Network Boundaries</h2>
+        <p>The First Fallacy of Distributed Computing states that "the network is reliable." It isn't. When Service A calls Service B, numerous things can go wrong: the network could drop the packet, the DNS resolution might fail, Service B might be overloaded, or a middlebox (like a proxy or load balancer) might misbehave. If Service A blocks synchronously waiting for Service B, it ties up its own threads. Under load, this leads to thread pool exhaustion, meaning Service A can no longer serve any requests, even those that don't depend on Service B.</p>
+
+        <h2>Beyond Basic Retries: Exponential Backoff and Jitter</h2>
+        <p>The simplest way to handle a transient network error is to retry the request. However, blind retries can cause more harm than good. If Service B is struggling to keep up with load, and 100 instances of Service A immediately retry their failed requests, they will essentially launch a Denial of Service (DoS) attack on their own infrastructure—a phenomenon known as a "retry storm."</p>
+        <p>To mitigate this, retries must employ exponential backoff. The first retry might happen after 100ms, the next after 200ms, then 400ms, and so on. But even this isn't enough. If many clients fail at the exact same time, their exponential backoffs will align, creating spikes of traffic. Introducing "jitter"—randomness added to the backoff interval—spreads these retries out over time, smoothing the load on the downstream service.</p>
+
+        <h2>Circuit Breakers: Knowing When to Stop Trying</h2>
+        <p>While retries help with transient errors, what happens when Service B is completely down? Continuing to retry is futile and wastes resources. This is where the Circuit Breaker pattern comes in.</p>
+        <p>A circuit breaker sits between Service A and Service B. It monitors the failure rate of requests. When the failure rate exceeds a certain threshold (e.g., 50% over a 10-second window), the breaker "trips" or "opens." When the circuit is open, subsequent requests to Service B fail fast—the circuit breaker immediately throws an exception without even trying to make the network call.</p>
+        <p>Periodically, the circuit breaker enters a "half-open" state, allowing a few test requests through. If they succeed, the circuit closes, and normal traffic resumes. If they fail, the circuit remains open. This gives the struggling downstream service time to recover without being hammered by traffic.</p>
+
+        <h2>Bulkheads: Isolating Failures</h2>
+        <p>Even with circuit breakers, a slow dependency can still exhaust the resources of the calling service if not properly managed. The Bulkhead pattern, named after the partitions in a ship's hull that prevent it from sinking if one section floods, addresses this.</p>
+        <p>In software, bulkheads isolate resources. Instead of a single thread pool for all outgoing HTTP requests, a service might allocate a specific, smaller thread pool (or connection pool) for each downstream dependency. If the calls to Service B become slow and exhaust its dedicated pool, requests to Service B will fail immediately, but the rest of the threads are preserved for calls to Service C and Service D. The failure is contained.</p>
+
+        <h2>Graceful Degradation and Fallbacks</h2>
+        <p>When a circuit breaker is open or a bulkhead is full, how should the application respond? Throwing an HTTP 500 error to the user is a last resort. Better systems implement fallbacks.</p>
+        <p>If an e-commerce site cannot reach the personalized recommendation service, it shouldn't fail to load the homepage. Instead, the fallback might be to return a static, cached list of global top-selling items. The user experience is slightly degraded, but the site remains functional. Designing effective fallbacks requires deep business context to understand what level of degradation is acceptable.</p>
+
+        <h2>Conclusion</h2>
+        <p>Building resilient microservices is not about preventing failure; it's about managing it. By implementing patterns like retries with jitter, circuit breakers, bulkheads, and thoughtful fallbacks, you can build systems that withstand the chaotic reality of the cloud and continue to deliver value to users even when underlying components fail.</p>
+      </article>
+    </div>
+    <div id="footer-container"></div>
+    <script type="module" src="/src/page.ts"></script>
+  </body>
+</html>

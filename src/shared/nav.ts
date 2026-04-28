@@ -11,6 +11,8 @@ export function setupNav(element: HTMLElement) {
               <div class="ml-10 flex items-baseline space-x-4">
                 <a href="/" class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfolio</a>
                 <a href="/games.html" class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Games</a>
+                <a href="/blog.html" class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Blog</a>
+                <a href="/contact.html" class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
               </div>
             </div>
           </div>
@@ -31,6 +33,8 @@ export function setupNav(element: HTMLElement) {
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a href="/" class="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Portfolio</a>
           <a href="/games.html" class="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Games</a>
+          <a href="/blog.html" class="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Blog</a>
+          <a href="/contact.html" class="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
         </div>
       </div>
     </nav>

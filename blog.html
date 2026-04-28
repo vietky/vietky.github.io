@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Viet Ky</title>
+  </head>
+  <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <div id="nav-container"></div>
+    <div id="app" class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+      <div class="mb-12">
+        <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">Blog</h1>
+        <p class="mt-4 text-xl text-gray-400">Deep dives into software architecture, game development, and the future of AI.</p>
+      </div>
+
+      <div class="grid gap-12 lg:grid-cols-2">
+        <!-- Article 1: Architecture -->
+        <article class="flex flex-col bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div class="flex-1 p-8 flex flex-col justify-between">
+            <div class="flex-1">
+              <p class="text-sm font-medium text-blue-400">Software Architecture</p>
+              <a href="/article-architecture.html" class="block mt-2">
+                <p class="text-2xl font-semibold text-white">Building Resilient Microservices in 2024</p>
+                <p class="mt-3 text-base text-gray-400">An in-depth look at modern patterns for ensuring high availability and fault tolerance in distributed systems, moving beyond simple circuit breakers.</p>
+              </a>
+            </div>
+            <div class="mt-6 flex items-center">
+              <div class="ml-3">
+                <p class="text-sm font-medium text-white">Viet Ky</p>
+                <div class="flex space-x-1 text-sm text-gray-400">
+                  <time datetime="2023-10-15">Oct 15, 2023</time>
+                  <span aria-hidden="true">&middot;</span>
+                  <span>8 min read</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 2: Game Dev -->
+        <article class="flex flex-col bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div class="flex-1 p-8 flex flex-col justify-between">
+            <div class="flex-1">
+              <p class="text-sm font-medium text-green-400">Game Development</p>
+              <a href="/article-gamedev.html" class="block mt-2">
+                <p class="text-2xl font-semibold text-white">Optimizing Render Pipelines for WebGL Games</p>
+                <p class="mt-3 text-base text-gray-400">Performance is critical for web-based games. Learn how to minimize draw calls, manage memory effectively, and leverage Three.js for 60fps experiences.</p>
+              </a>
+            </div>
+            <div class="mt-6 flex items-center">
+              <div class="ml-3">
+                <p class="text-sm font-medium text-white">Viet Ky</p>
+                <div class="flex space-x-1 text-sm text-gray-400">
+                  <time datetime="2023-10-22">Oct 22, 2023</time>
+                  <span aria-hidden="true">&middot;</span>
+                  <span>12 min read</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3: AI -->
+        <article class="flex flex-col bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div class="flex-1 p-8 flex flex-col justify-between">
+            <div class="flex-1">
+              <p class="text-sm font-medium text-purple-400">AI Integration</p>
+              <a href="/article-ai.html" class="block mt-2">
+                <p class="text-2xl font-semibold text-white">The Practical Guide to Embedding LLMs in Web Apps</p>
+                <p class="mt-3 text-base text-gray-400">Beyond chatbots: how to use Large Language Models for semantic search, dynamic content generation, and intelligent data extraction in production apps.</p>
+              </a>
+            </div>
+            <div class="mt-6 flex items-center">
+              <div class="ml-3">
+                <p class="text-sm font-medium text-white">Viet Ky</p>
+                <div class="flex space-x-1 text-sm text-gray-400">
+                  <time datetime="2023-11-05">Nov 5, 2023</time>
+                  <span aria-hidden="true">&middot;</span>
+                  <span>10 min read</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 4: Automation -->
+        <article class="flex flex-col bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div class="flex-1 p-8 flex flex-col justify-between">
+            <div class="flex-1">
+              <p class="text-sm font-medium text-yellow-400">Automation</p>
+              <a href="/article-automation.html" class="block mt-2">
+                <p class="text-2xl font-semibold text-white">Zero-Touch CI/CD: Automating the Unautomateable</p>
+                <p class="mt-3 text-base text-gray-400">Strategies for pushing your CI/CD pipelines further using GitHub Actions, custom runners, and automated visual regression testing.</p>
+              </a>
+            </div>
+            <div class="mt-6 flex items-center">
+              <div class="ml-3">
+                <p class="text-sm font-medium text-white">Viet Ky</p>
+                <div class="flex space-x-1 text-sm text-gray-400">
+                  <time datetime="2023-11-12">Nov 12, 2023</time>
+                  <span aria-hidden="true">&middot;</span>
+                  <span>9 min read</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div id="footer-container"></div>
+    <script type="module" src="/src/page.ts"></script>
+  </body>
+</html>
