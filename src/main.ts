@@ -33,19 +33,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           </div>
         </a>
 
-        <!-- Placeholder: Mario -->
-        <div class="block bg-gray-800 border border-gray-700 rounded-xl shadow-lg overflow-hidden opacity-75 cursor-not-allowed">
-          <div class="relative pb-[56.25%] bg-gray-900 border-b border-gray-700">
-            <div class="absolute inset-0 flex items-center justify-center bg-red-900 text-white">
-              <span class="text-3xl font-bold">Coming Soon</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-500 mb-2">Super Mario Bros (Clone)</h3>
-            <p class="text-gray-400">Jump and run through levels. Currently in development.</p>
-          </div>
-        </div>
-
         <!-- Tank 1990 Card -->
         <a href="/tank.html" class="group block bg-gray-800 border border-gray-700 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1">
           <div class="relative pb-[56.25%] bg-gray-900 border-b border-gray-700">
@@ -58,19 +45,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <p class="text-gray-300">Defend your base and destroy enemy tanks. Play the classic battle city!</p>
           </div>
         </a>
-
-        <!-- Placeholder: Dynomite -->
-        <div class="block bg-gray-800 border border-gray-700 rounded-xl shadow-lg overflow-hidden opacity-75 cursor-not-allowed">
-          <div class="relative pb-[56.25%] bg-gray-900 border-b border-gray-700">
-            <div class="absolute inset-0 flex items-center justify-center bg-yellow-900 text-white">
-              <span class="text-3xl font-bold">Coming Soon</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-500 mb-2">Dynomite</h3>
-            <p class="text-gray-400">Shoot eggs and match colors to clear the board. Currently in development.</p>
-          </div>
-        </div>
 
       </div>
     </main>

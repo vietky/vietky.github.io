@@ -1,12 +1,12 @@
 export function setupMaze(container: HTMLElement) {
     const wrapper = document.createElement('div');
-    wrapper.className = "relative w-full max-w-[600px] mx-auto";
+    wrapper.className = "relative w-full max-w-[600px] max-h-[600px] aspect-[1/1] mx-auto flex items-center justify-center";
     container.appendChild(wrapper);
 
     const canvas = document.createElement('canvas');
     canvas.width = 600;
     canvas.height = 600;
-    canvas.className = "bg-white border-4 border-gray-800 rounded-lg shadow-xl w-full h-auto";
+    canvas.className = "bg-white border-4 border-gray-800 rounded-lg shadow-xl w-full h-full object-contain";
     wrapper.appendChild(canvas);
 
     // UI Overlay for Employment History
